@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block titulo %} Editar {% endblock %}
+
+{% block contenido %}  
+<div class="card" style="margin-top: 150px;" >
+    <div class="card mb-3" style="margin: 50px auto; line-height: 40px;">
+        <div class="row" id="crear">
+            <div class="col-md-4" style="justify-content: center;">
+              <img style="align-content: center;height: 100%; width: 100%;"
+              src="https://s3.amazonaws.com/stickers.wiki/Yilinisdoodoo/612591.512.webp" 
+              class="img-fluid rounded-start"  alt="...">
+            </div>
+            
+            <div class="col-md-8">
+                <div class="card-body" style="margin-top: 20px;">
+                    <h4 class="card-title" style="color: #112452; text-align: center;
+                    text-transform:uppercase;">Datos de la Mascott</h4>
+                    {% include 'mascotas/form.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

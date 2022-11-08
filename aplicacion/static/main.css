@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+
+:root{
+    --theme-color: white;
+    --background-color: white;
+    --primary-color: #1b3061;
+    --secundary-color: #F7C331;
+    --text-color-inverse: white;
+    --text-color: black;
+    --slider-color:#ffff;
+    --capa--color:#1b3061;
+    --color-perros:#0DD976;
+    --slider-anuncio: hsl(31, 77%, 52%);
+    --slider-anuncios:rgba(3, 89, 92, .5);
+    --footer-color: #183fa2;
+    --card-color:rgb(163, 157, 157);
+    --brightOrange: hsl(31, 77%, 52%);
+      --darkCyan: hsl(184, 100%, 22%);
+      --veryDarkCyan: hsl(179, 100%, 13%);
+      --transparentWhite: #e5ebeb;
+      --veryLightGray: hsl(0, 0%, 95%);
+  
+  }
+
+  [data-theme='oscuro'] {
+    --theme-color:  rgb(11, 27, 32);
+    --background-color: rgb(11, 27, 32);
+    --text-color: rgb(209, 208, 208);
+    --primary-color: #f3f3f3;
+    --text-color-inverse: #f3f3f3;
+    --secundary-color:hsl(31, 77%, 52%);
+    --footer-color: #071333;
+    --card-color:#f3f3f3;
+    --slider-color:rgb(23, 60, 71);
+    --capa--color:rgb(0, 0, 0);
+    --color-perros:rgb(16, 45, 54);
+    --slider-anuncio: hsl(31, 71%, 13%);
+    --slider-anuncios:rgba(31, 147, 151, 0.5);
+
+
+
+
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-decoration: none;
+   
+  }
+  a{
+    text-decoration: none;
+    
+  }
+  

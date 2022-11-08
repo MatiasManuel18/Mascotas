@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block titulo %} Lista de productos {% endblock %}
+
+{% block contenido %}
+<body>
+<div class="contenedor" style="margin-top: 90px;">
+    <div class="cuadro">
+        <div class="titulo">
+            <h1>Lista de productos: 
+                <a name="" id="button" class="btn btn-dark" href="{% url 'crear_productos' %}" role="button" float="right">Agregar productos</a>
+            </h1>
+        </div>
+        <!-- CREAMOS UNA TABLA PARA LIBROS -->
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Imagen</th>
+                    <th>Precio</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for productos in productos %}
+                <tr>
+                    <td>{{ productos.id }}</td>
+                    <td>{{ productos.titulo }}</td>
+                    <td>
+                        <img src="{{ productos.imagen.url }}" height="110" width="150" object-fit="cover">
+                    </td>
+                    <td>{{ productos.precio }}</td>
+                    <td>
+                        <a name="" id="" class="btn btn-success" href="{% url 'editar_productos' productos.id %}" role="button">Editar</a>
+                        |
+                        <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_productos' productos.id %}" role="button">Borrar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<style>
+    .contenedor{
+        margin: 40px auto;
+        width: 90%;
+        border: solid 2px #c8c8c8;
+    }
+    .titulo{
+        background-color: white;
+    }
+    .tabla{
+        width: 100%;
+        background: white;
+        text-align: left;
+    }
+    th, td{
+        padding: 10px 20px;
+    }
+    thead{
+        background-color: #256AA8;
+        color: white;
+        border: solid 3px #256AA8;
+    }
+    /*Pone un fondo de color por cada segundo registro*/
+    tr:nth-child(even){
+        background-color: rgb(231, 137, 133);
+    }
+    /*Le pone un color cuando mueves el mause a ese registro*/
+    tr:hover td{
+        background: #D5D1DA;
+        color: black;
+        object-fit: cover;
+    }
+    @media screen and (max-width: 992px){
+        table {
+           width:100%;
+       }
+       thead {
+           display: none;
+       }
+       tr:nth-of-type(2n) {
+           background-color: inherit;
+       }
+       tr td:first-child {
+           background: #f0f0f0;
+           font-weight:bold;
+           font-size:1.3em;
+       }
+       tbody td {
+           display: block;
+           text-align:center;
+       }
+       tbody td:before {
+           content: attr(data-th);
+           display: block;
+           text-align:center;
+       }
+       .contenedor{
+        border: none;
+       }
+}
+
+</style>
+</body>
+{% endblock %}

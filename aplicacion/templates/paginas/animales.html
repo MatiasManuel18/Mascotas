@@ -1,0 +1,410 @@
+{% extends 'base.html' %}
+{% block titulo %} Mascotas {% endblock %}
+
+{% block contenido %}
+{% block buscador %}
+<!--Este es un buscador-->
+<div class="contenedorBuscar" style="text-align: center; width: 100%; margin-top: 100px;">
+
+<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+      method="POST">
+  {% csrf_token %}
+  <div class="input-group" >
+    <!--CASILLA PARA ESCRIBIR-->
+    <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." name="buscar">
+    <!--BOTON DE BUSCAR-->
+    <div class="input-group-append">
+      <button class="btn btn-primary" type="submit">
+        <i class="fas fa-search fa-sm"></i>
+      </button>
+    </div>
+  </div>
+</form>
+</div>
+{% endblock buscador %}
+  <div class="container">
+    <!--<h1 style="text-align: center; margin-top: 0px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Adopcion para perros</h1>-->
+    <div class="row" style="margin: 60px 3px 0px 30px; " >
+    {% for mascotas in animales %}
+        <div class="col-sm-4">
+          <div class="card items-t">
+            <br><h5 class="card-title titulo-an" style="text-align: center;">{{ mascotas.titulo }}</h5><br>
+            <div class="cont">
+              <img style="object-fit: cover;"  src="{{ mascotas.imagen.url }} "
+              height="320px" width="200px" class="card-img-top img-item " alt="...">
+            </div>
+            <div class="card-body" style="text-align: center;">
+        <!--Inicio-popup-->
+              <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{{ mascotas.titulo }} " data-bs-whatever="@mdo">Adoptar</a>
+              <form method="POST" action="{% url 'sendEmail' %}" class="classSendMail">
+                {% csrf_token %}
+              <div class="modal fade" id="{{ mascotas.titulo }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered popup-m"  style="max-width: 800px!important;">
+                  <div class="modal-content popup-m">
+                    <div class="modal-header">
+                      <img src="static/img/footprints-g6a50d3d8f_1280.png" class="img-fluid imgr"
+                       style="height:50px; width:50px; margin-left: 15px;">
+                      <h5 class="modal-title w-100 text-center " style="color:#409bd0; text-transform: uppercase; "
+                       id="exampleModalLabel">{{ mascotas.titulo}} </h5>
+                       <img src="static/img/footprints-g6a50d3d8f_1280.png" class="img-fluid horizontals imgr"
+                       style="height:50px; width:50px;">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <input class="txtSexo" type="hidden" name ="formTxtNombre" value ="{{ mascotas.titulo}}">
+                        <div class="Descripcion-p" ><input class="txtSexo" type="hidden" name ="formTxtSexo" value ="{{ mascotas.sexo}}">Sexo:&nbsp;{{mascotas.sexo}}&nbsp;&nbsp;&nbsp;&nbsp;|<strong>&nbsp;&nbsp;&nbsp;&nbsp;Celular:&nbsp;{{mascotas.telefono}}</strong> </div>
+                       <p class="Descripcion-p" style=" margin: 0px 12px 30px 12px;"><input class="txtTelefono" type="hidden" name ="formTxtTelefono" value ="{{ mascotas.telefono}}">Descripcion:&nbsp;{{mascotas.descripcion}}</p>
+                
+                       <div class="card" style="background-color:#0DD976; color:white; border-color: white; border-radius: 14px;">
+                        <div class="row">
+                          <div class="col-md-5">
+                            <input class="txtImagen" type="hidden" name ="formTxtImagen" value ="{{ mascotas.imagen.url}}"><img src="{{ mascotas.imagen.url }}" style="height: 100%; width: 100%;" class="img-fluid rounded-start" alt="..."></div>
+                            <div class="col-md-6">
+                              <div class="card-body">
+                                <form>
+                                  <div class="col-md-12">
+                                    <label for="recipient-name" class="col-form-label">Nombre:</label>
+                                    <input  type="text" class="form-control" name ="formTxtName" id="recipient-name">
+                                  </div>
+                                   <div class="col-md-12">
+                                    <label for="recipient-name" class="col-form-label">Direccion:</label>
+                                    <input type="text" class="form-control" name ="formTxtDireccion" id="recipient-Direccion">
+                                  </div>
+                                  <div class="col-md-12">
+                                    <label for="message-text" class="col-form-label">Asunto:</label>
+                                    <textarea  class="form-control" name ="formTxtAsunto"id="message-Asunto" style="height:120px;"></textarea>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn" style="background-color:  #893ce8; border-color: non;
+                      color: white;" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" value="enviar" class="btn"  style="background-color: #409bd0; border-color: none;
+                      color: white;" >enviar</button>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+              {% if messages %}
+              {% for message in messages %}
+                  <div>
+                      {{message}}
+                  </div>
+              {% endfor %}
+          {% endif %}
+          </form>             
+        <!--Fin-del-popup-->
+            </div>
+          </div>
+        </div>
+    {% endfor %}      
+    </div>
+  </div>
+
+<!--BOTON DE WHATTSAP-->
+
+          <div class="nav-bottom">
+            <div class="popup-whatsapp fadeIn">
+              <div class="content-whatsapp -top">
+                <button type="button" class="closePopup">
+                  <i class="material-icons icon-font-color">close</i>
+                </button> 
+                   <p><img src="static/img/patita.png" width="50" height="60">Adopta tu mascota enviandonos una foto</p>
+              </div>
+              
+              <div class="content-whatsapp -bottom">
+                <input class="whats-input" id="whats-in" type="text" Placeholder="Enviar mensaje..." />
+                  <button class="send-msPopup" id="send-btn" type="button">
+                    <i class="material-icons icon-font-color--black">send</i>
+                  </button>
+              </div>
+            </div>
+
+            <button type="button" id="whats-openPopup" class="whatsapp-button">
+              <div class="float">
+                <i class="fa fa-whatsapp my-float"></i>
+              </div>
+            </button>
+            <div class="circle-anime"></div>
+          </div>
+
+  <script>
+    popupWhatsApp = () => {
+    
+    let btnClosePopup = document.querySelector('.closePopup');
+    let btnOpenPopup = document.querySelector('.whatsapp-button');
+    let popup = document.querySelector('.popup-whatsapp');
+    let sendBtn = document.getElementById('send-btn');
+
+    btnClosePopup.addEventListener("click",  () => {
+      popup.classList.toggle('is-active-whatsapp-popup')
+    })
+    
+    btnOpenPopup.addEventListener("click",  () => {
+      popup.classList.toggle('is-active-whatsapp-popup')
+      popup.style.animation = "fadeIn .6s 0.0s both";
+    })
+    
+    sendBtn.addEventListener("click", () => {
+    let msg = document.getElementById('whats-in').value;
+    let relmsg = msg.replace(/ /g,"%20");
+      
+    window.open('https://wa.me/51932614936?text='+relmsg, '_blank'); 
+    
+    });
+
+    setTimeout(() => {
+      popup.classList.toggle('is-active-whatsapp-popup');
+    }, 3000);
+  }
+  popupWhatsApp();
+  </script>
+
+<style>
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom: 15px;
+  right: 16px;
+	background-color:#4cc370;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+.float:hover {
+	text-decoration: none;
+	color: #fff;
+  background-color:#3d9e5a;
+}
+
+.my-float{
+	margin-top:16px;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+/* offset-x > | offset-y ^| blur-radius | spread-radius | color */
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+.pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+.nav-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-content: flex-end;
+  width: 400px;
+  height: auto;
+  position: fixed;
+  z-index: 8;
+  bottom: 0px;
+  right: 0px;
+  padding: 5px;
+  margin: 0px;
+}
+@media (max-width: 360px) {
+  .nav-bottom {
+    width: 320px;
+  }
+}
+
+.whatsapp-button {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 60px;
+  height: 60px;
+  z-index: 8;
+  transition: .3s;
+  margin: 10px;
+  padding: 7px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: white;
+  /* offset-x > | offset-y ^| blur-radius | spread-radius | color */
+  -webkit-box-shadow: 1px 1px 6px 0px rgba(68, 68, 68, 0.705);
+  -moz-box-shadow: 1px 1px 6px 0px rgba(68, 68, 68, 0.705);
+  box-shadow: 1px 1px 6px 0px rgba(68, 68, 68, 0.705);
+}
+
+.circle-anime {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-content: center;
+  width: 60px;
+  height: 60px;
+  top: 15px;
+  right: 15px;
+  border-radius: 50%;
+  transition: .3s;
+  background-color: #77bb4a;
+  animation: pulse 1.2s 4.0s ease 4;
+}
+
+.popup-whatsapp {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  bottom: 85px;
+  right: 6px;
+  transition: .5s;
+  border-radius: 10px;
+  background-color: white;
+  /* offset-x > | offset-y ^| blur-radius | spread-radius | color */
+  -webkit-box-shadow: 2px 1px 6px 0px rgba(68, 68, 68, 0.705);
+  -moz-box-shadow: 2px 1px 6px 0px rgba(68, 68, 68, 0.705);
+  box-shadow: 2px 1px 6px 0px rgba(68, 68, 68, 0.705);
+  animation: slideInRight .6s 0.0s both;
+}
+.popup-whatsapp > div {
+  margin: 5px;
+}
+@media (max-width: 680px) {
+  .popup-whatsapp p {
+    font-size: 0.9em;
+  }
+}
+.popup-whatsapp > .content-whatsapp.-top {
+  display: flex;
+  flex-direction: column;
+}
+.popup-whatsapp > .content-whatsapp.-top p {
+  color: #585858;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 1.0em;
+}
+.popup-whatsapp > .content-whatsapp.-bottom {
+  display: flex;
+  flex-direction: row;
+}
+
+.closePopup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  margin: 0px 0px 15px 0px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #4cc370;
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(68, 68, 68, 0.705);
+  -moz-box-shadow: 1px 1px 2px 0px rgba(68, 68, 68, 0.705);
+  box-shadow: 1px 1px 2px 0px rgba(68, 68, 68, 0.705);
+}
+.closePopup:hover {
+  background-color: #3d9e5a;
+  transition: .3s;
+}
+
+.send-msPopup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  margin: 0px 0px 0px 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(68, 68, 68, 0.705);
+  -moz-box-shadow: 1px 1px 2px 0px rgba(68, 68, 68, 0.705);
+  box-shadow: 1px 1px 2px 0px rgba(68, 68, 68, 0.705);
+}
+.send-msPopup:hover {
+  background-color: #f8f8f8;
+  transition: .3s;
+}
+
+.is-active-whatsapp-popup {
+  display: flex;
+  animation: slideInRight .6s 0.0s both;
+  background-color: #fafafa;
+}
+
+input.whats-input[type=text] {
+  width: 250px;
+  height: 40px;
+  box-sizing: border-box;
+  border: 0px solid #ffffff;
+  border-radius: 20px;
+  font-size: 1em;
+  background-color: #ffffff;
+  padding: 0px 0px 0px 10px;
+  -webkit-transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out;
+  outline: none;
+  transition: .3s;
+}
+@media (max-width: 420px) {
+  input.whats-input[type=text] {
+    width: 225px;
+  }
+}
+input.whats-input::placeholder {
+  /* Most modern browsers support this now. */
+  color: rgba(68, 68, 68, 0.705);
+  opacity: 1;
+}
+input.whats-input[type=text]:focus {
+  background-color: #f8f8f8;
+  -webkit-transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out;
+  transition: .3s;
+}
+
+.icon-whatsapp-small {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-whatsapp {
+  width: 45px;
+  height: 45px;
+}
+
+.icon-font-color {
+  color: #ffffff;
+}
+
+.icon-font-color--black {
+  color: #333333;
+}
+</style>
+
+{% endblock %}
+</body>

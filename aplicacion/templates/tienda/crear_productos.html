@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block titulo %} Agregar nueva mascota {% endblock %}
+
+{% block contenido %}
+
+<div class="card" style="margin-top: 150px;">
+    <div class="card mb-3" style="max-width: 940px; margin: 50px auto; line-height: 40px;" >
+        <div class="row" id="crear">
+            <div class="col-md-4" style="background-color: var(--brightOrange); ">
+              <img style=" opacity: 0.8;" 
+               src="https://i.postimg.cc/vT3Hwjnt/Dise-o-sin-t-tuldddo.png" 
+              class="img-fluid rounded-start"  alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body" style="margin-top: 20px;">
+                    <h4 class="card-title" style="color: #112452; text-align: center;
+                    text-transform:uppercase;">Datos del Producto</h4>
+                    {% include 'tienda/formProductos.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

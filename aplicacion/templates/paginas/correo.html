@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% block titulo %} Consultas {% endblock %}
+
+{% block contenido %}  
+<div class="contenedorFormulario" style="margin-top:60px;">
+    {% if "valido" in request.GET %}
+    <p style="color:black; font-size:30px; text-transform:uppercase; text-align:center;">
+        Información enviada correctamente</p>
+    {% endif %}
+    <h1 class="logos">Contactate con <span>Nosotros<br></span></h1>
+    <div class="contact-wrapper animated bounceInUp">
+        <div class="contact-form">
+            <h2>Mandanos tu opinion</h2>
+            <form action="" id="form" method="POST">
+                {% csrf_token %}
+                <p>
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" id="name" placeholder="nombre">
+                </p>
+                <p>
+                    <label>Gmail</label>
+                    <input type="email" name="email" id="email" placeholder="example@gmail.com">
+                </p>
+                <p>
+                    <label>Numero de telefono</label>
+                    <input type="tel" name="telefono" id="telefono" placeholder="Telefono">
+                </p>
+                <p>
+                    <label>Asunto</label>
+                    <input type="text" name="asunto" id="asunto" placeholder="Asunto">
+                </p>
+                <p class="block">
+                   <label>Escriba su mensaje</label>
+                    <textarea name="contenido" id="contenido" rows="3"></textarea>
+                </p>
+                <p class="block">
+                    <input type="submit" value="Enviar" style="width: 150px;">
+
+                </p>
+            </form>
+        </div>
+        <div class="contact-info">
+            <h4>Mas informacion</h4>
+            <ul class="conta">
+                <li><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp; Mollendo/Arequipa/Peru</li>
+                <li><i class="fas fa-phone"></i>&nbsp; &nbsp;+51 987 645 849</li>
+                <li><i class="fas fa-envelope-open-text"></i> &nbsp;&nbsp;Eduar@gmail.com</li>
+                <li><i class="fas fa-envelope-open-text"></i> &nbsp;&nbsp;Matias@gmail.com</li>
+            </ul>
+            <p>Katman Producciones.com</p>
+        </div>
+    </div>
+</div>
+
+</div>
+<style>
+    .contenedorFormulario {
+        max-width: 1170px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 50px 0px;
+    }
+
+    .logos {
+        text-align: center;
+        font-size: 2em;
+        font-family: 'Kaushan Script';
+        margin: 10px 0px 40px 0px;
+    
+    }
+    
+    
+    .logos span {
+        color: #06dd23;
+        
+    }
+    
+    .contact-wrapper {
+        box-shadow: 0 0 25px 0 rgb(126, 126, 126);
+    }
+    
+    
+    
+    
+    .contact-wrapper {
+        box-shadow: #000;
+        border-color: #000;
+    }
+    
+    .contact-wrapper > * {
+        padding: 1em;
+    }
+    /*Contactos*/
+    .contact-form {
+        background: #ffffff;
+        margin-top: 16px 0px;
+    }
+    .contact-form h2{
+        color: black;
+        font-size: 2rem;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0px 20px;
+        
+    
+    }
+    
+    .contact-form form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+    
+    .contact-form form label {
+        display: block;
+        line-height: 40px;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+    
+    .contact-form form p {
+        margin: 0;
+        padding: 1em;
+        color: black;
+    }
+    
+    .contact-form form .block {
+        grid-column: 1 / 3;
+    }
+    
+    .contact-form form button,
+    .contact-form form input,
+    .contact-form form textarea {
+        width: 100%;
+        padding: .7em;
+        border: none;
+        background: none;
+        outline: 0;
+        color: black;
+        border-bottom: 5px solid hsl(184, 100%, 22%);;
+    }
+    
+    .contact-form form button {
+        background: hsl(184, 100%, 22%);;
+        border-radius: 20px;
+        text-transform: uppercase;
+        padding: 1em;
+        width: 30%;
+        color: rgb(255, 255, 255);
+    }
+    
+    .contact-form form button:hover,
+    .contact-form form button:focus {
+        background: #fdba0f;
+        color: #fff;
+        transition: background-color 1s ease-out;
+        outline: 0;
+    }
+    /* CONTACT INFO */
+    .contact-info {
+        background: hsl(184, 100%, 22%);;
+        color: #fff;    
+    }
+    
+    .contact-info h4, .contact-info ul, .contact-info p {
+        text-align: center;
+        margin: 0 0 1rem 0;
+        padding: 10px;
+    }
+    .conta {
+        list-style: none;
+        
+        
+    }
+    .contact-info ul{
+        line-height: 60px;
+
+    }
+    .contact-info i{
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 35px;
+        padding: 10px;
+        border-color: #fff;
+    }
+    
+    /* LARGE SIZE */
+    @media(min-width: 700px) {
+        
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+
+        }
+        .contact-wrapper > * {
+            padding: 2em;
+        }
+        .contact-info h4,
+        .contact-info ul,
+        .contact-info p {
+            text-align: left;
+        }
+    }
+    </style>
+    {% endblock %}
+
+</body>
+

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block titulo %} Lista de mascotas {% endblock %}
+
+{% block contenido %}
+<body>
+<div class="contenedor">
+    <div class="cuadro">
+        <div class="titulo" style="margin-top: 60px;">
+            <h1>Tabla de nuestras Mascotas: 
+                <a name="" id="button" class="btn btn-dark" href="{% url 'crear_mascotas' %}" role="button" float="right">Agregar nueva mascota</a>
+                <a name="" id=""  onclick="HTMLtoPDF()" class="btn btn-danger"  role="button">Pdf</a>
+            </h1>
+        </div>
+        <!-- CREAMOS UNA TABLA PARA LIBROS -->
+        <table class="tabla" id="HTMLtoPDF">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Imagen</th>
+                    <th>Descripcion</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mascotas in mascotas %}
+                <tr >
+                    <td>{{ mascotas.id }}</td>
+                    <td>{{ mascotas.titulo }}</td>
+                    <td>
+                        <img src="{{ mascotas.imagen.url }}" height="110" width="150" object-fit="cover">
+                    </td>
+                    <td>{{ mascotas.descripcion }}</td>
+                    <td>
+                        <a name="" id="" class="btn btn-success" href="{% url 'editar_mascotas' mascotas.id %}" role="button">Editar</a>
+                        |
+                        <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_mascotas' mascotas.id %}" role="button">Borrar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<style>
+    .contenedor{
+        margin: 40px auto;
+        width: 90%;
+        border: solid 2px #c8c8c8;
+    }
+    .titulo{
+        background-color: white;
+    }
+    .tabla{
+        width: 100%;
+        background: white;
+        text-align: left;
+    }
+    th, td{
+        padding: 10px 20px;
+    }
+    thead{
+        background-color: #256AA8;
+        color: white;
+        border: solid 3px #256AA8;
+    }
+    /*Pone un fondo de color por cada segundo registro*/
+    tr:nth-child(even){
+        background-color: rgb(116, 129, 241);
+    }
+    /*Le pone un color cuando mueves el mause a ese registro*/
+    tr:hover td{
+        background: #D5D1DA;
+        color: black;
+        object-fit: cover;
+    }
+    @media screen and (max-width: 992px){
+        table {
+           width:100%;
+       }
+       thead {
+           display: none;
+       }
+       tr:nth-of-type(2n) {
+           background-color: inherit;
+       }
+       tr td:first-child {
+           background: #f0f0f0;
+           font-weight:bold;
+           font-size:1.3em;
+       }
+       tbody td {
+           display: block;
+           text-align:center;
+       }
+       tbody td:before {
+           content: attr(data-th);
+           display: block;
+           text-align:center;
+       }
+       .contenedor{
+        border: none;
+       }
+}
+
+</style>
+</body>
+{% endblock %}

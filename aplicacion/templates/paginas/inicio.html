@@ -1,0 +1,278 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Nuestro Inicio{% endblock %}
+<body>
+  {% block contenido %}
+     <!-- slider -->
+     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button></div>
+          <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <div class="capa"></div>
+                  <div class="banner" style="background-image: url(static/img/puppy-gd6b257198_1920.jpg);"></div>
+                      <div class="carousel-caption">
+                          <h2>las Mascotas<span>&nbsp;Son fabulosas</span><br><a href="{% url 'animales' %}"><button type="button" class="btn btnadop"style="color:white; background-color: transparent;">Adopta</button></a></h2>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <div class="capa"></div>
+                      <div class="banner" style="background-image: url(static/img/cat-g5af9d98f4_1920.jpg);"></div>
+                      <div class="carousel-caption">
+                          <h2>Registrate Para poder <span> Publicar tu Mascota</span>
+                          </h2>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <div class="capa"></div>
+                      <div class="banner" style="background-image: url(static/img/bulldog-g310e69d3b_1920.jpg);"></div>
+                      <div class="carousel-caption">
+                          <h2>Para una<span>&nbsp;Mejor VIda</span></h2>
+                      </div>
+                  </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+              </button>
+          </div>
+<!--Fin-del-Slider-->
+          <br>
+          <div class="Items4">
+            <div class="Pregunta">
+              <h6>¿Por qué adoptar un animalito de nuestra asociacion?</h6>
+            </div>
+            <div class="container">
+              <div class="row" style="margin:60px 0px 60px 20px;">
+                <div class="col-sm-3">
+                  <div class="card Tarjeta-1" style="width: 14rem; margin-top: 20px;">
+                    <i class="fa-solid fa-syringe" style="font-size:48px; margin-top: 20px;color:var(--primary-color)" ></i>
+                    <div class="card-body">
+                      <h5 class="card-title">Vacunado</h5>
+                      <p class="card-text">Antiparasitos y entro otros mas. con nuestras veterinarias asociadas.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="card Tarjeta-1" style="width: 14rem; margin-top: 20px;">
+                    
+                    <i class="fas fa-bowl-food" style="font-size:48px; margin-top: 20px;color:var(--primary-color)"></i>
+                    <div class="card-body">
+                      <h5 class="card-title">Alimentado</h5>
+                      <p style="color:var(--card-color);" class="card-text">Mejores Nutrientes para su desarrollo. en su rehabilitacion</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="card Tarjeta-1" style="width: 14rem; margin-top: 20px;">
+                    <i class="fa fa-fill-drip "style="font-size:48px; margin-top: 20px;color:var(--primary-color)"></i>
+
+                    <div class="card-body">
+                      <h5 class="card-title">Aseo</h5>
+                      <p class="card-text">Muy bien bañado y perfumado listo para la adopcion.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="card Tarjeta-1" style="width: 14rem; margin-top: 20px;">
+                    <i class="fa fa-dog"style="font-size:48px; margin-top: 20px;color:var(--primary-color)"></i>
+                    <div class="card-body">
+                      <h5 class="card-title">Contribucion</h5>
+                      <p class="card-text">Contribuyes a que animalitos rescatados tengan un hogar.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                      <!-- Linea de separacion-->
+                      <div class="linea"></div>
+<!-- Nosotros-->
+          <section class="about" id="about">
+            <div class="image">
+            <img src="https://www.renian.org/wp-content/uploads/2021/02/perro-gato.png" alt="">
+          </div>
+          <div class="content">
+            <h3>Quiénes <span>somos y</span> por qué existimos</h3>
+            <p>Somos una asociación sin fines de lucro que busca construir un mundo mejor para los perros a través de iniciativas sostenibles</p>
+            <a href="#Donar" class="btn2">Donar</a>
+          </div>
+        </section>
+        <!-- Fin de Nosotros -->
+        <!-- Linea de separacion-->
+        <div class="linea"></div>
+        <!--Slider- titulo-->
+        <div class="titulo-aupicia">
+          <h3>Descuento  <span> Por la adopcion de una</span> Mascota con nuestros socios</h3>
+        </div>
+        <div class="veterenary">
+          <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner ContenidoP">
+              <div class="carousel-item active">
+                <div class="capas"></div>
+                <div class="banners" style="background-image: url(static/img/1.png);"></div></div>
+                <div class="carousel-item">
+                  <div class="capas"></div>
+                  <div class="banners" style="background-image: url(static/img/2.png);"></div>
+                </div>
+              </div>
+              <button class="carousel-control-prev Izquierda" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span> <i style="font-size: 30px; " class="fa fa-chevron-left" aria-hidden="true"></i></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next derecha" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span> <i style="font-size: 30px; " class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                <span class="visually-hidden ">Next</span>
+              </button>
+            </div>
+   <!--2-img-publicidad-->
+            <div class="img-veterian">
+              
+              <img src="static/img/vet-g8ad229f47_640.png" width="600" height="300"
+              ></img> 
+              
+              <img src="static/img/313401413_183954044171189_3391592467399113726_n.jpg" width="600" height="300"
+               ></img>
+              </div>
+            </div>
+            <!--Slider-Infinito-->
+            <div class="logo-slider">
+              <div class="slider-contenido">
+                <div class="logo-s">
+                  <a target="_blank" href="https://www.facebook.com/zoovetmollendo/">
+                    <img src="static/img/logo-g6061ec499_1280.png"></a>
+                  </div>
+                  <div class="logo-s">
+                    <img src="https://www.logogenio.es/download/preview/medium/7103546">
+                  </div>
+                  <div class="logo-s">
+                    <img src="https://patasresort.com/wp-content/uploads/2021/04/logo-veterinaria-petfecto.png">
+                  </div>
+                  <div class="logo-s">
+                    <img src="http://vetdelvalle.mx/nueva/wp-content/uploads/2020/05/Recurso-2.png">
+                  </div>
+                  <div class="logo-s">
+                    <img src="https://www.logogenio.es/download/preview/medium/7103546">
+                  </div>
+                  <div class="logo-s">
+                    <img src="https://patasresort.com/wp-content/uploads/2021/04/logo-veterinaria-petfecto.png">
+                  </div>
+                  <div class="logo-s">
+                    <a target="_blank" href="https://www.facebook.com/zoovetmollendo/">
+                      <img src="https://veterinariasedavi.com/new/wp-content/uploads/2020/07/logo-clinica-veterinaria-sedavi.png"></a>
+                    </div>
+                    <div class="logo-s">
+                      <img src="https://www.logogenio.es/download/preview/medium/7103546">
+                    </div>
+                    <div class="logo-s">
+                      <img src="https://patasresort.com/wp-content/uploads/2021/04/logo-veterinaria-petfecto.png">
+                    </div>
+                    <div class="logo-s">
+                      <img src="http://vetdelvalle.mx/nueva/wp-content/uploads/2020/05/Recurso-2.png">
+                    </div>
+                    <div class="logo-s">
+                      <img src="https://www.logogenio.es/download/preview/medium/7103546">
+                    </div>
+                    <div class="logo-s">
+                      <img src="https://patasresort.com/wp-content/uploads/2021/04/logo-veterinaria-petfecto.png">
+                    </div>
+                  </div>
+                </div>
+                <!--fin-Slider-Infinito-->
+                <!-- Linea de separacion-->
+                <div class="linea"></div>
+                <!--Contenido-Adopta-->
+                <div class="contenido">
+                  <div class="titulo">
+                    <h5>Detras de esto:</h5>
+                    <p>Por un bien comun</p>
+                  </div>
+                      </div>
+                      <div class="team">
+                        <div class="card cardc">
+                            <div class="head">
+                                <div class="circle"></div>
+                                <div class="img">
+                                    <img src="static/img/avatar-g59cca3e93_640.png" alt="" weight="120px" height="120px">
+                                </div>
+                            </div>
+                    
+                            <div class="description">
+                                <h3>Obel David Mamani Ccuno</h3>
+                                <h4>Tecnico en Ingenieria de Software</h4>
+                                <p>Desarrollador de distintos lenguajes de Programacion, Experto en distintas areas TI!</p>
+                            </div>
+                    
+                            <div class="contact">
+                                <a href="#">Contact</a>
+                            </div>
+                        </div>
+                    
+                        <div class="card cardc">
+                            <div class="head">
+                                <div class="circle"></div>
+                                <div class="img">
+                                    <img src="static/img/avatar-g57e27eed6_1280.png" alt="">
+                                </div>
+                            </div>
+                    
+                            <div class="description">
+                                <h3>Eduardo Gomez Barahona</h3>
+                                <h4>Tecnico en Ingenieria de Software</h4>
+                                <p>Desarrollador de distintos capacidades front-end y backend.</p>
+                            </div>
+                    
+                            <div class="contact">
+                                <a href="#">Contact</a>
+                            </div>
+                        </div>
+                    
+                            <div class="card cardc">
+                            <div class="head">
+                                <div class="circle"></div>
+                                <div class="img">
+                                    <img src="static/img/person-gcb2325d9b_1280.png" alt="">
+                                </div>
+                            </div>
+                    
+                            <div class="description">
+                                <h3>Matias Manuel Adco Larota</h3>
+                                <h4>Tecnico en Ingenieria de Software</h4>
+                                <p>Desarrollador de front-end y backend.!</p>
+                            </div>
+                    
+                            <div class="contact">
+                                <a href="#">Contact</a>
+                            </div>
+                        </div>
+                    
+                        <div class="card cardc">
+                            <div class="head">
+                                <div class="circle"></div>
+                                <div class="img">
+                                    <img src="static/img/avatar-g8ef347545_1920.png" alt="">
+                                </div>
+                            </div>
+                    
+                            <div class="description">
+                                <h3>Adams</h3>
+                                <h4>Gerenta</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, eligendi!</p>
+                            </div>
+                    
+                            <div class="contact">
+                                <a href="#">Contact</a>
+                            </div>
+                        </div>
+                    
+                        </div>
+
+              {% endblock %}
+</body>
+</html>

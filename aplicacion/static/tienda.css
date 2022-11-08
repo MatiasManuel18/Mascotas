@@ -1,0 +1,105 @@
+/*animales2*/
+.horizontals{
+    transform: scaleX(-1);
+
+}
+@media only screen and (max-width: 767px) {
+.imgr{
+    height: 30px;
+    width: 30px;
+    max-width: 600px;
+    justify-content: space-between;
+}
+
+}
+
+/*finanimales*/
+
+.item-card:hover{
+background-color: rgb(203, 226, 246);
+
+}
+.titulo-principal{
+color: rgb(226, 0, 0);
+text-transform: uppercase;
+font-weight: 500;
+font-family: 'poppins' ;
+}
+.precio{
+color: var( --brightOrange);
+}
+
+
+.items-t{
+margin-top: 50px;
+margin-bottom: 25px;
+margin-left: 25px;
+background-color: var(--theme-color);
+text-align: center;
+box-shadow: 0px 0px 10px 0px  var(--primary-color);
+}
+
+.items-t .titulo-an:hover{
+background-color: rgb(17, 60, 80);
+color: white;
+
+}
+
+
+.items-t:hover{
+background-color: rgb(16, 59, 80);
+color: white;
+
+}
+
+.btn-item-tienda{
+text-align: center;
+margin-left: -150px;
+padding: 8px;
+width: 100px;
+height: 40px;
+}
+
+#añadir{
+float: right;
+margin-top: -62px;
+}
+
+.Descripcion-p{
+color: var(--text-color);
+
+}
+
+.precio{
+color: var(--brightOrange);
+}
+
+.popup-m{
+background-color: var(--theme-color);
+}
+
+/*ventana-2*/
+.ventana-2{
+z-index: 2;
+background-color: aqua;
+position: absolute;
+}
+
+.ItemTienda{
+flex: 1;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+.ItemTienda{
+    margin: 40px 0px 0px 80px;
+    padding: 0px 0px 0px 0px;
+   
+}
+}
+@media only screen and (max-width: 767px) {
+.card{
+    margin: 40px;
+}
+
+}
+

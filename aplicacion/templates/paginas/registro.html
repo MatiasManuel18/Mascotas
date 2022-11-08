@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.6.2/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <title>Registro</title>
+</head>
+<body>
+  <section class="form-contact">
+    <header>
+      <span>
+        <img  style="filter: brightness(1.1);
+        mix-blend-mode: multiply;" src="https://previews.123rf.com/images/jamesstar/jamesstar1705/jamesstar170500086/77445163-logotipo-de-la-impresi%C3%B3n-de-la-pata-del-perro.jpg"
+             width="250" height="250" alt="">
+      </span>
+    </header>
+    <!--REGISTRO-->
+    <form class="contact" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" id="submit">Registrarse</button>
+    </form>
+  </section>
+<style>
+body {
+  background: url(https://img.freepik.com/vector-gratis/marco-vector-perros-sobre-fondo-blanco_53876-127700.jpg?w=2000);
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  font-family: Arial, Helvetica, sans-serif;  
+}
+
+.form-contact {
+  background: #FFF;
+  width: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 7px 13px 37px rgba(0, 0, 0, .8);
+}
+
+header {
+  width: 100%;
+  background: #87b6b8;
+  overflow: hidden;
+  color: rgb(14, 42, 134);
+}
+
+header span {
+  display: block;
+  text-align: center;
+  padding: 2rem;
+}
+
+.contact {
+  padding: .8rem;
+  overflow: hidden;
+  color: rgb(5, 5, 5);
+}
+
+.contact label, .contact input, .contact textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;   
+}
+
+.contact label {
+  font-weight: 700;
+}
+
+.contact input:not([type='submit']), .contact textarea {
+  border: none;
+  border-bottom: 4px solid #020202;
+  margin-bottom: 10px;
+  font-size: 20px;
+  outline: none;
+  color: gray;
+}
+
+.contact textarea {
+  min-height: 100px;
+}
+button#submit {
+width: 100%;
+padding: 20px 0;
+text-align: center;
+background: #049276;
+font-size: 20px;
+color: #fff;
+border: 0;
+border-radius: 4px;
+opacity: .8;
+transition: .35s linear;
+}
+
+button#submit:hover {
+background-color: greenyellow;
+}
+@media (max-width:700px) {
+  .form-contact{
+    top: 200px;
+    margin: 10px;
+    width: 85%;
+    height: 50%;
+  }
+}
+</style>
+</body>
+</html>
